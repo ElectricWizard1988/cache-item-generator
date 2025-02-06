@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Cache</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Generate Cache</h1>
+    <form method="post">
+        <label for="imei">Enter IMEI:</label>
+        <input type="text" id="imei" name="imei" required><br><br>
+
+        <label for="supplier">Select Supplier:</label>
+        <select id="supplier" name="supplier" required>
+            <option value="teltonika">Teltonika</option>
+            <option value="queclink">Queclink</option>
+        </select><br><br>
+
+        <input type="submit" value="Generate">
+    </form>
+
+    {% if result %}
+    <h2>Generated Cache String:</h2>
+    <pre>{{ result }}</pre>
+    {% endif %}
+</body>
+</html>
